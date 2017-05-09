@@ -20,6 +20,25 @@ export class AppComponent implements OnInit {
   public searchTerm: string;
   public demoForm: FormGroup;
 
+  public headers = [
+    {
+      title: 'ID',
+      value: 'id'
+    },
+    {
+      title: 'Source',
+      value: 'source'
+    },
+    {
+      title: 'Type',
+      value: 'type'
+    },
+    {
+      title: 'Title',
+      value: 'title'
+    }
+  ];
+
   get locationField () {
     return (<FormControl>this.demoForm.controls['location']);
   }
@@ -89,5 +108,10 @@ export class AppComponent implements OnInit {
   handleFormSubmit(data: any, isValid: boolean) {
     console.log(data);
     console.log(isValid);
+  }
+
+  handleRecordSelect(record: {[key: string]: any}) {
+    console.log(record);
+    this.overlayService.setFeatures([record as Feature], 'zoom');
   }
 }

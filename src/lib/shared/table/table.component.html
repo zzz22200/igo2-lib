@@ -1,0 +1,28 @@
+<igo-list [navigation]="true" [selection]="true"> 
+  <table class="igo-striped">
+    <tbody>
+      <tr>
+        <th *ngFor="let header of headers">
+          <igo-table-header [value]="header.title" [sort]="true"></igo-table-header>
+        </th>
+      </tr>
+
+      <ng-template ngFor let-record let-i="index" [ngForOf]="records">
+        <tr
+          igoListItem
+          color="accent"
+          (focus)="focus.emit(record)"
+          (select)="select.emit(record)"
+          (unfocus)="unfocus.emit(record)"
+          (unselect)="unselect.emit(record)">
+          <ng-template ngFor let-header [ngForOf]="headers">
+            <td>
+              <igo-table-cell [type]="header.type" [value]="record[header.value]"></igo-table-cell>
+            </td>
+          </ng-template>
+        </tr>
+      </ng-template>
+      
+    </tbody>
+  </table>
+</igo-list>

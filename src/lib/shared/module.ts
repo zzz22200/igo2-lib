@@ -14,6 +14,7 @@ import { ListComponent, ListItemDirective } from './list';
 import { PanelComponent } from './panel';
 import { SidenavShimDirective } from './sidenav';
 import { SpinnerComponent, SpinnerBindingDirective } from './spinner';
+import { TableComponent, TableCellComponent, TableHeaderComponent } from './table';
 
 
 @NgModule({
@@ -43,7 +44,10 @@ import { SpinnerComponent, SpinnerBindingDirective } from './spinner';
     PanelComponent,
     SidenavShimDirective,
     SpinnerComponent,
-    SpinnerBindingDirective
+    SpinnerBindingDirective,
+    TableComponent,
+    TableCellComponent,
+    TableHeaderComponent
   ],
   declarations: [
     ClickoutDirective,
@@ -56,7 +60,10 @@ import { SpinnerComponent, SpinnerBindingDirective } from './spinner';
     PanelComponent,
     SidenavShimDirective,
     SpinnerComponent,
-    SpinnerBindingDirective
+    SpinnerBindingDirective,
+    TableComponent,
+    TableCellComponent,
+    TableHeaderComponent
   ]
 })
 export class IgoSharedModule {
