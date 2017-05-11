@@ -171,11 +171,17 @@
     </md-card-content>
   </md-card>
 
+
   <md-card>
     <md-card-subtitle>Shared module</md-card-subtitle>
     <md-card-title>table.component</md-card-title>
     <md-card-content>
-      <igo-table [headers]="headers" [records]="records$ | async"></igo-table>
+      <igo-table
+        [headers]="headers"
+        [records]="featureService.features$ | async"
+        (focus)="handleRecordFocus($event)"
+        (select)="handleRecordSelect($event)">    
+      </igo-table>
     </md-card-content>
   </md-card>
 

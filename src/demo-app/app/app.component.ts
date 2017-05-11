@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { ContextService,
          Feature, FeatureType, FeatureService, IgoMap,
@@ -21,20 +20,22 @@ export class AppComponent implements OnInit {
   public searchTerm: string;
   public demoForm: FormGroup;
 
-  public records$ = new BehaviorSubject<{[key: string]: any}[]>([]);
-
   public headers = [
     {
       title: 'ID',
       value: 'id'
     },
     {
-      title: 'First Name',
-      value: 'firstname'
+      title: 'Source',
+      value: 'source'
     },
     {
-      title: 'Last Name',
-      value: 'lastname'
+      title: 'Type',
+      value: 'type'
+    },
+    {
+      title: 'Title',
+      value: 'title'
     }
   ];
 
@@ -66,24 +67,6 @@ export class AppComponent implements OnInit {
         Validators.required
       ]]
     });
-
-    this.records$.next([
-      {
-        id: 1,
-        firstname: 'Bill',
-        lastname: 'Gates'
-      },
-      {
-        id: 2,
-        firstname: 'Alice',
-        lastname: 'Cooper'
-      },
-      {
-        id: 3,
-        firstname: 'Marco',
-        lastname: 'Polo'
-      }
-    ]);
   }
 
   handleSearch(term: string) {
@@ -125,5 +108,19 @@ export class AppComponent implements OnInit {
   handleFormSubmit(data: any, isValid: boolean) {
     console.log(data);
     console.log(isValid);
+  }
+
+  handleRecordFocus(record: {[key: string]: any}) {
+    console.log(`Record ${record['id']} focused!`);
+    if (record['type'] === FeatureType.Feature) {
+      this.overlayService.setFeatures([record as Feature], 'move');
+    }
+  }
+
+  handleRecordSelect(record: {[key: string]: any}) {
+    console.log(`Record ${record['id']} selected!`);
+    if (record['type'] === FeatureType.Feature) {
+      this.overlayService.setFeatures([record as Feature], 'zoom');
+    }
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { TableHeader } from './table.interface';
 
@@ -23,6 +23,11 @@ export class TableComponent {
     this._records = value;
   }
   private _records: {[key: string]: any}[] = [];
+
+  @Output() focus = new EventEmitter<{[key: string]: any}>();
+  @Output() select = new EventEmitter<{[key: string]: any}>();
+  @Output() unfocus = new EventEmitter<{[key: string]: any}>();
+  @Output() unselect = new EventEmitter<{[key: string]: any}>();
 
   constructor() { }
 

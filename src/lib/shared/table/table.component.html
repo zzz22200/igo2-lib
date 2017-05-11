@@ -1,18 +1,28 @@
-<table class="igo-striped">
-  <tbody>
-    <tr>
-      <th *ngFor="let header of headers">
-        {{header.title}}
-      </th>
-    </tr>
+<igo-list [navigation]="true" [selection]="true"> 
+  <table class="igo-striped">
+    <tbody>
+      <tr>
+        <th *ngFor="let header of headers">
+          {{header.title}}
+        </th>
+      </tr>
 
-    <tr *ngFor="let record of records">
-      <ng-template ngFor let-header [ngForOf]="headers">
-        <td>
-          {{record[header.value]}}
-        </td>
+      <ng-template ngFor let-record let-i="index" [ngForOf]="records">
+        <tr
+          igoListItem
+          color="accent"
+          (focus)="focus.emit(record)"
+          (select)="select.emit(record)"
+          (unfocus)="unfocus.emit(record)"
+          (unselect)="unselect.emit(record)">
+          <ng-template ngFor let-header [ngForOf]="headers">
+            <td>
+              {{record[header.value]}}
+            </td>
+          </ng-template>
+        </tr>
       </ng-template>
-    </tr>
-    
-  </tbody>
-</table>
+      
+    </tbody>
+  </table>
+</igo-list>
