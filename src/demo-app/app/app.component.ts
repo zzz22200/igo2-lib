@@ -67,29 +67,6 @@ export class AppComponent implements OnInit {
         Validators.required
       ]]
     });
-
-    this.records$.next([
-      {
-        id: 1,
-        firstname: 'Bill',
-        lastname: 'Gates'
-      },
-      {
-        id: 2,
-        firstname: 'Steve',
-        lastname: 'Jobs'
-      },
-      {
-        id: 3,
-        firstname: 'Marco',
-        lastname: 'Polo'
-      },
-      {
-        id: 4,
-        firstname: 'Elon',
-        lastname: 'Musk'
-      }
-    ]);
   }
 
   handleSearch(term: string) {
