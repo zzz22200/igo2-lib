@@ -111,7 +111,8 @@ export class AppComponent implements OnInit {
   }
 
   handleRecordSelect(record: {[key: string]: any}) {
-    console.log(record);
-    this.overlayService.setFeatures([record as Feature], 'zoom');
+    if ((record as Feature).type === FeatureType.Feature) {
+      this.overlayService.setFeatures([record as Feature], 'zoom');
+    }
   }
 }

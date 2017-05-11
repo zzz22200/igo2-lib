@@ -82,6 +82,18 @@
   </md-card>
 
   <md-card>
+    <md-card-subtitle>Shared module</md-card-subtitle>
+    <md-card-title>table.component</md-card-title>
+    <md-card-content>
+      <igo-table
+        [headers]="headers"
+        [records]="featureService.features$ | async"
+        (select)="handleRecordSelect($event)">
+      </igo-table>
+    </md-card-content>
+  </md-card>
+
+  <md-card>
     <md-card-subtitle>Map module</md-card-subtitle>
     <md-card-title>map-browser.component</md-card-title>
     <md-card-content class="igo-map-browser-container">
@@ -168,18 +180,6 @@
         </div>
 
       </form>
-    </md-card-content>
-  </md-card>
-
-  <md-card>
-    <md-card-subtitle>Shared module</md-card-subtitle>
-    <md-card-title>table.component</md-card-title>
-    <md-card-content>
-      <igo-table
-        [headers]="headers"
-        [records]="featureService.features$ | async"
-        (select)="handleRecordSelect($event)">
-      </igo-table>
     </md-card-content>
   </md-card>
 
