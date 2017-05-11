@@ -2,6 +2,7 @@
 	"igo": {
 		"contexts": "Contextes",
 		"endDate": "Date de fin",
+		"featureTable": "Table de résultats",
 		"format": "Format",
 		"hideLayer": "Masquer la couche",
 		"landscape": "Paysage",

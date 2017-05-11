@@ -1,0 +1,6 @@
+<igo-table
+  [headers]="headers"
+  [records]="featureService.features$ | async"
+  (focus)="handleRecordFocus($event)"
+  (select)="handleRecordSelect($event)">    
+</igo-table>

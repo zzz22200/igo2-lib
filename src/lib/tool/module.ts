@@ -16,14 +16,15 @@ import { ToolboxComponent } from './toolbox';
 
 import { ContextManagerToolComponent, MapDetailsToolComponent,
          SearchResultsToolComponent, PrintToolComponent,
-         TimeAnalysisToolComponent } from './tools';
+         TimeAnalysisToolComponent, FeatureTableToolComponent } from './tools';
 
 const IGO_TOOLS = [
   ContextManagerToolComponent,
   MapDetailsToolComponent,
   SearchResultsToolComponent,
   PrintToolComponent,
-  TimeAnalysisToolComponent
+  TimeAnalysisToolComponent,
+  FeatureTableToolComponent
 ];
 
 @NgModule({

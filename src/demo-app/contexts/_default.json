@@ -19,7 +19,8 @@
     "mapDetails",
     "timeAnalysis",
     "contextManager",
-    "print"
+    "print",
+    "featureTable"
   ],
   "tools": [
     {
@@ -36,6 +37,9 @@
     },
     {
       "name": "print"
+    },
+    {
+      "name": "featureTable"
     }
   ]
 }
