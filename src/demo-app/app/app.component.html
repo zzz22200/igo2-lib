@@ -175,7 +175,7 @@
     <md-card-subtitle>Shared module</md-card-subtitle>
     <md-card-title>table.component</md-card-title>
     <md-card-content>
-      <!-- Insert table component here -->
+      <igo-table [headers]="headers" [records]="records$ | async"></igo-table>
     </md-card-content>
   </md-card>
 

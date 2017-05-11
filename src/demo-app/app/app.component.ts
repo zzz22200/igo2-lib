@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { ContextService,
          Feature, FeatureType, FeatureService, IgoMap,
@@ -19,6 +20,23 @@ export class AppComponent implements OnInit {
   public map = new IgoMap();
   public searchTerm: string;
   public demoForm: FormGroup;
+
+  public records$ = new BehaviorSubject<{[key: string]: any}[]>([]);
+
+  public headers = [
+    {
+      title: 'ID',
+      value: 'id'
+    },
+    {
+      title: 'First Name',
+      value: 'firstname'
+    },
+    {
+      title: 'Last Name',
+      value: 'lastname'
+    }
+  ];
 
   get locationField () {
     return (<FormControl>this.demoForm.controls['location']);
@@ -48,6 +66,24 @@ export class AppComponent implements OnInit {
         Validators.required
       ]]
     });
+
+    this.records$.next([
+      {
+        id: 1,
+        firstname: 'Bill',
+        lastname: 'Gates'
+      },
+      {
+        id: 2,
+        firstname: 'Alice',
+        lastname: 'Cooper'
+      },
+      {
+        id: 3,
+        firstname: 'Marco',
+        lastname: 'Polo'
+      }
+    ]);
   }
 
   handleSearch(term: string) {
