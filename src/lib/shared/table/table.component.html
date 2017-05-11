@@ -1,1 +1,18 @@
-<div>Table component</div>
+<table class="igo-striped">
+  <tbody>
+    <tr>
+      <th *ngFor="let header of headers">
+        {{header.title}}
+      </th>
+    </tr>
+
+    <tr *ngFor="let record of records">
+      <ng-template ngFor let-header [ngForOf]="headers">
+        <td>
+          {{record[header.value]}}
+        </td>
+      </ng-template>
+    </tr>
+    
+  </tbody>
+</table>
