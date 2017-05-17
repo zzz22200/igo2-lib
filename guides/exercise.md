@@ -1,7 +1,7 @@
 ## Prérequis
 
-  - NodeJS
-  - NPM
+  - NodeJS (testé avec v7.7.3)
+  - NPM (testté avec v4.1.2)
   - Git
 
 ## Installation
@@ -109,8 +109,8 @@
       },
       {
         id: 2,
-        firstname: 'Alice',
-        lastname: 'Cooper'
+        firstname: 'Steve',
+        lastname: 'Jobs'
       },
       {
         id: 3,
@@ -119,8 +119,8 @@
       },
       {
         id: 4,
-        firstname: 'Connor',
-        lastname: 'McDavid'
+        firstname: 'Elon',
+        lastname: 'Musk'
       }
     ]
     ```
