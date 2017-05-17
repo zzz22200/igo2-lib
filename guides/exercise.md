@@ -22,13 +22,13 @@ Installation
 
   - Ajouter un "index.ts" avec l'export du table-component
 
-    ```
+    ```javascript
     export * from './table.component';
     ```
 
   - Dans "index.ts" du module "shared", ajouter un export du dossier "table"
     
-    ```
+    ```javascript
     export * from './table';
     ```
 
