@@ -75,13 +75,18 @@ export class AppComponent implements OnInit {
       },
       {
         id: 2,
-        firstname: 'Alice',
-        lastname: 'Cooper'
+        firstname: 'Steve',
+        lastname: 'Jobs'
       },
       {
         id: 3,
         firstname: 'Marco',
         lastname: 'Polo'
+      },
+      {
+        id: 4,
+        firstname: 'Elon',
+        lastname: 'Musk'
       }
     ]);
   }
