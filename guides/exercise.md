@@ -1,19 +1,21 @@
-Prérequis
+## Prérequis
 
   - NodeJS
   - NPM
   - Git
 
-Installation
+## Installation
  
-  - git clone https://github.com/infra-geo-ouverte/igo2-lib.git
-  - cd igo2-lib
-  - git fetch
-  - git checkout exercise
-  - npm install
-  - npm start
+  ```
+  git clone https://github.com/infra-geo-ouverte/igo2-lib.git
+  cd igo2-lib
+  git fetch
+  git checkout exercise
+  npm install
+  npm start
+  ```
 
-- Mise en place
+## Mise en place
 
   - Dans le module "shared", créer un dossier "table" avec les fichiers
     ".ts", ".styl", ".html" et ".spec". Pour l'instant on laisse tomber le ".spec".
@@ -53,7 +55,7 @@ Installation
   - Dans "demo-app/app/app.component.html", ajouter un espace (card) pour le component
     et y ajouter la balise "igo-table".
 
-- Template de TableComponent
+## Template de TableComponent
 
   - Remplacer le code dans table.component.html par le suivant:
 
@@ -125,7 +127,7 @@ Installation
 
   - La page se rafraîchit automatiquement et la table s'affiche correctement
 
-- Fournir des données à la table
+## Fournir des données à la table
 
   - Déplacer "headers" et "records" dans "demo-app/app/app.component.ts"
 
@@ -185,7 +187,7 @@ Installation
     <igo-table [headers]="headers" [records]="records"></igo-table>
     ```
 
-- Rendre les données dynamiques
+## Rendre les données dynamiques
 
   Les données son, en fait, déjà dynamiques. Aussitôt que "records" change, la table
   se mettra à jour. Par contre, ce genre de données sont généralement stockées dans un
@@ -263,7 +265,7 @@ Installation
     pour l'instant mais pour démontrer leur utilité, nous allons modifier le code que nous avons fait
     et se connecter sur un autre "Observable".
 
-- Changer la source de données
+## Changer la source de données
 
   L'outil de recherche sauvegarde ses résultats dans un service appelé "FeatureService".
   Ce service a une propriété "features$" qui peut être observée et qui change chaque fois
@@ -307,7 +309,7 @@ Installation
     connectée aux résultats de recherche et aucune recherche n'a été effectuée. Effectuez
     des recherches et voyez les résultats s'afficher.
 
-- Rendre les données sélectionnables
+## Rendre les données sélectionnables
 
   Nous aimerions pouvoir sélectionner un résultat en cliquant dessus et pouvoir naviguer
   parmi les résultats avec les flèches du clavier. Pour y arriver, nous allons réutiliser
@@ -425,7 +427,7 @@ Installation
     }
     ```
 
-- Styliser la table
+## Styliser la table
 
   - La table peu être stylisée avec "stylus" (compilé en CSS). Pour ce faire, ajouter
     le contenu suivant au fichier "lib/shared/table/table.component.styl"
@@ -452,6 +454,6 @@ Installation
     - Définir les règles de positionnement de l'élément dans le fichier ".styl" du component parent (
       dans notre cas app.component.styl)
 
-- Créer un outil de table
+## Créer un outil de table
 
-  - Fait mais à documenter
+  - À venir
