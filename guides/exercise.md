@@ -166,22 +166,22 @@
     ```
 
     Dans le code ci-haut, nous décorons "headers" avec le décorateur "Input". C'est cela
-    qui permettra de passer les headers en argument au component.
+    qui permettra de passer les "headers" et les "records"  en argument au component.
 
     De plus, nous définissions un "getter" et un "setter" pour cette propriété dont
-    la valeur est conservée dans "_headers". Notez la présente de l'underscore et du
+    la valeur est conservée dans "_headers". Notez la présence de l'underscore et du
     mot clé "private". Une propriété "private" n'est accessible qu'à l'intérieur
     du component où elle se trouve mais pas dans son template HTML. Si l'on ne met rien devant
     la propriété elle est "public". L'autre type possible est "protected" qui permet aux classes
     enfants d'accéder à la propriété.
 
-    Notez aussi que dans ce cas il y a un underscore devant headers mais ce n'est pas devant
-    toutes les variables privées que l'on doit en mettre. Seulement lorsqu'un getter et un setter sont
+    Notez aussi que dans ce cas il y a un underscore devant "headers" mais ce n'est pas devant
+    toutes les variables privées que l'on doit en mettre. Seulement lorsqu'un "getter" et un "setter" sont
     définis.
 
     On indique aussi avec "TableHeader[]", que cette propriété doit être un array de "TableHeader"
 
-  - Dans "demo-app/app/app.component.html", fournir "headers" et "records" <a la table de la façon suivante:
+  - Dans "demo-app/app/app.component.html", fournir "headers" et "records" à la table de la façon suivante:
 
     ```html
     <igo-table [headers]="headers" [records]="records"></igo-table>
@@ -189,7 +189,7 @@
 
 ## Rendre les données dynamiques
 
-  Les données son, en fait, déjà dynamiques. Aussitôt que "records" change, la table
+  Les données sont, en fait, déjà dynamiques. Aussitôt que "records" change, la table
   se mettra à jour. Par contre, ce genre de données sont généralement stockées dans un
   "Observable", soit un type d'objet qui émet un message lorsqu'il change. Dans cet partie
   nous allons créer un observable et afficher les données qu'il contient dans la table.
@@ -221,13 +221,18 @@
           },
           {
             id: 2,
-            firstname: 'Alice',
-            lastname: 'Cooper'
+            firstname: 'Steve',
+            lastname: 'Jobs'
           },
           {
             id: 3,
             firstname: 'Marco',
             lastname: 'Polo'
+          },
+          {
+            id: 4,
+            firstname: 'Elon',
+            lastname: 'Musk'
           }
         ]);
       }
@@ -237,19 +242,19 @@
     }
     ```
 
-    Effacer complètment la variable "records" qui est remplacé par "records$".
+    Effacer complètement la variable "records" qui est remplacé par "records$".
 
     Dans ce bout de code nous importons d'abord "BehaviorSubject" qui est une classe
     observable.
 
-    On créée ensuite une instance de cette classe en lui spécifiant que le type
-    de valeurs qu'elle va contenir est une liste de "{[key: string]: any}". On
+    On créé ensuite une instance de cette classe en lui spécifiant que le type
+    de valeur qu'elle va contenir est une liste de "{[key: string]: any}". On
     l'instantie également avec une valeur initiale (liste vide []). Notez que le
     nom de la propriété se termine par un "$". C'est une convention utilisée pour dénoter
     un objet observable.
 
     Finalement, dans la méthode "ngOnInit", qui est automatiquement appelée par Angular,
-    nous donnons une valeur à l'observale "record$" en utilisant la méthode "next".
+    nous donnons une valeur à l'observale "records$" en utilisant la méthode "next".
 
   - La page se rafraîchit automatiquement et rien ne s'affiche dans la table. Effectivement,
     la table cherche les valeurs dans "records" qui n'existe plus. Nous pouvons lui dire d'utiliser
@@ -267,7 +272,7 @@
 
 ## Changer la source de données
 
-  L'outil de recherche sauvegarde ses résultats dans un service appelé "FeatureService".
+  L'outil de recherche conserve ses résultats dans un service appelé "FeatureService".
   Ce service a une propriété "features$" qui peut être observée et qui change chaque fois
   qu'une recherche est faite. Utilisons cette propriété comme source de données.
 
@@ -275,7 +280,7 @@
     Normalement, il faudrait importer le FeatureService et l'injecter mais c'est déjà fait.
 
   - Comme les "Feature" stockés dans le "FeatureService" n'ont pas les même propriétés que
-    celle que nous tulisions auparavant, il faut modifier "headers" de la façon suivante:
+    celle que nous utilisions auparavant, il faut modifier "headers" de la façon suivante:
 
     ```javascript
     public headers = [
@@ -319,7 +324,7 @@
 
   - La directive "ListItemDirective" peut être placée sur n'importe quel élément contenu dans un
     component "ListComponent". Nous allons donc modifier le template de notre table
-    pour en faire une "ListComponent" et appliquer la directive sur chacune des lignes de la table.
+    pour en faire un "ListComponent" et appliquer la directive sur chacune des lignes de la table.
 
     Remplace le contenu du fichier ".html" par:
 
@@ -355,7 +360,7 @@
     permet d'écouter 4 événements soit "focus", "unfocus", "select" et "unselect".
 
     Ces événements sont "écoutables" dans le component "table" mais ils ne sont pas propagées
-    jusqu';a l'application. Pour ce faire, ajouter le code suivant dans le fichier ".ts".
+    jusqu'à l'application. Pour ce faire, ajouter le code suivant dans le fichier ".ts".
 
     ```javascript
     import { Component, Input, Output, EventEmitter } from '@angular/core';
@@ -432,7 +437,7 @@
   - La table peu être stylisée avec "stylus" (compilé en CSS). Pour ce faire, ajouter
     le contenu suivant au fichier "lib/shared/table/table.component.styl"
 
-    ```css
+    ```
     @require '../../../style/var.styl';
 
     td, th {
@@ -441,9 +446,9 @@
     ```
 
     Dans ce bout de stylus, nous ajoutons du padding aux éléments "td" et "th". La valeur
-    de ce padding est stockée dans une variable pour être réutilisables. Notez que le style
+    de ce padding est stockée dans une variable pour être réutilisable. Notez que le style
     dans une fichier ".styl" d'un component s'applique UNIQUEMENT à ce component et non à
-    l'entièrement des éléments contenus dans la page.
+    l'entièreté des éléments contenus dans la page.
 
     Lors qu'on stylise un component, il y a quelques principes à suivre:
 
