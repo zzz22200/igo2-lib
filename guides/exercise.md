@@ -15,27 +15,27 @@ Installation
 
 - Mise en place
 
-  - * Dans le module "shared", créer un dossier "table" avec les fichiers
+  - Dans le module "shared", créer un dossier "table" avec les fichiers
     ".ts", ".styl", ".html" et ".spec". Pour l'instant on laisse tomber le ".spec".
 
     Pour l'instant, laisser les templates de base dans les fichiers.
 
-  - * Ajouter un "index.ts" avec l'export du table-component
+  - Ajouter un "index.ts" avec l'export du table-component
 
-    '''
+    ```
     export * from './table.component';
-    '''
+    ```
 
-  - * Dans "index.ts" du module "shared", ajouter un export du dossier "table"
+  - Dans "index.ts" du module "shared", ajouter un export du dossier "table"
     
-    '''
-    export * from './table';
-    '''
+    ```
+    export * from './table';
+    ```
 
-  - Dans "module.ts", import "TableComponent" et l'ajouter à la liste des déclarations
+  - Dans "module.ts", importer "TableComponent" et l'ajouter à la liste des déclarations
     et des exports.
 
-    '''
+    ```javascript
     import { TableComponent } from './table';
 
     ...
@@ -48,7 +48,7 @@ Installation
       ...,
       TableComponent
     ]
-    '''
+    ```
 
   - Dans "demo-app/app/app.component.html", ajouter un espace (card) pour le component
     et y ajouter la balise "igo-table".
@@ -57,7 +57,7 @@ Installation
 
   - Remplacer le code dans table.component.html par le suivant:
 
-    '''
+    ```html
     <table class="igo-striped">
       <tbody>
         <tr>
@@ -76,14 +76,14 @@ Installation
         
       </tbody>
     </table>
-    '''
+    ```
 
   - La page se rafraîchit automatiquement. Dans la console du navigateur on remarque
     que rien ne s'affiche car "headers" et "records" ne sont pas définis.
 
   - Définir "records" et "headers" de la façon suivante dans le component
 
-    '''
+    ```javascript
     public headers = [
       {
         title: 'ID',
@@ -121,7 +121,7 @@ Installation
         lastname: 'McDavid'
       }
     ]
-    '''
+    ```
 
   - La page se rafraîchit automatiquement et la table s'affiche correctement
 
@@ -131,23 +131,23 @@ Installation
 
   - Définir un interface "TableHeader" dans "table.interface.ts"
 
-    '''
+    ```javascript
     export interface TableHeader {
       title: string;
       value: string;
     }
-    '''
+    ```
 
   - Dans "table.component.ts", importer "Input" depuis "@angular/core" et "TableHeader"
     depuis "./table.interface"
 
-    '''
+    ```javascript
     import { Component, Input } from '@angular/core';
-    '''
+    ```
 
   - Ajouter le code suivant pour indiquer que "headers" est un input du component
 
-    '''
+    ```javascript
     @Input()
     get headers(): TableHeader[] { return this._headers; }
     set headers(value: TableHeader[]) {
@@ -161,7 +161,7 @@ Installation
       this._records = value;
     }
     private _records: {[key: string]: any}[] = [];
-    '''
+    ```
 
     Dans le code ci-haut, nous décorons "headers" avec le décorateur "Input". C'est cela
     qui permettra de passer les headers en argument au component.
@@ -181,9 +181,9 @@ Installation
 
   - Dans "demo-app/app/app.component.html", fournir "headers" et "records" <a la table de la façon suivante:
 
-    '''
+    ```html
     <igo-table [headers]="headers" [records]="records"></igo-table>
-    '''
+    ```
 
 - Rendre les données dynamiques
 
@@ -194,7 +194,7 @@ Installation
 
   - Dans "demo-app/app/app.component.ts", créer un observable de la façon suivante:
 
-    '''
+    ```javascript
     import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
     ...
@@ -233,7 +233,7 @@ Installation
       ...
 
     }
-    '''
+    ```
 
     Effacer complètment la variable "records" qui est remplacé par "records$".
 
@@ -253,9 +253,9 @@ Installation
     la table cherche les valeurs dans "records" qui n'existe plus. Nous pouvons lui dire d'utiliser
     "records$" de la façon suivante:
 
-    '''
+    ```html
     <igo-table [headers]="headers" [records]="records$ | async"></igo-table>
-    '''
+    ```
 
     Les données s'affichent correctement et nous sommes de retour au point de départ. Pourquoi
     avoir fait cela? Les "Observables" sont des objets très puissants et dès qu'on veut rendre une
@@ -275,7 +275,7 @@ Installation
   - Comme les "Feature" stockés dans le "FeatureService" n'ont pas les même propriétés que
     celle que nous tulisions auparavant, il faut modifier "headers" de la façon suivante:
 
-    '''
+    ```javascript
     public headers = [
       {
         title: 'ID',
@@ -294,14 +294,14 @@ Installation
         value: 'title'
       }
     ];
-    '''
+    ```
 
   - Dans "demo-app/app/app.component.html", nous allons nous connecter à l'observable
     "featureService.features$" plutôt que "records$", qui n'existe plus.
 
-    '''
+    ```html
     <igo-table [headers]="headers" [records]="featureService.features$ | async"></igo-table>
-    '''
+    ```
 
     La page se refraîcit automatiquement et la table est vide. C'est normal car elle est
     connectée aux résultats de recherche et aucune recherche n'a été effectuée. Effectuez
@@ -321,7 +321,7 @@ Installation
 
     Remplace le contenu du fichier ".html" par:
 
-    '''
+    ```html
     <igo-list [navigation]="true" [selection]="true"> 
       <table class="igo-striped">
         <tbody>
@@ -346,7 +346,7 @@ Installation
         </tbody>
       </table>
     </igo-list>
-    '''
+    ```
 
   - La liste est maintenant sélectionnable et navigable mais comment, à partir de l'application,
     fait-on pour récupérer le résultat sélectionné? La directive "IgoListItemDirective"
@@ -355,7 +355,7 @@ Installation
     Ces événements sont "écoutables" dans le component "table" mais ils ne sont pas propagées
     jusqu';a l'application. Pour ce faire, ajouter le code suivant dans le fichier ".ts".
 
-    '''
+    ```javascript
     import { Component, Input, Output, EventEmitter } from '@angular/core';
 
     ...
@@ -370,11 +370,11 @@ Installation
     @Output() unselect = new EventEmitter<{[key: string]: any}>();
 
     }
-    '''
+    ```
 
     Ajouter aussi ce code dans le fichier ".html":
 
-    '''
+    ```html
     ...
 
     <tr
@@ -393,23 +393,23 @@ Installation
 
     ...
 
-    '''
+    ```
 
   - Les événements "focus", "unfocus", "select" et "unselect" sont capturés et réémis.
     Pour les écouter, modifier la ligne dans "demo-app/app/app.component.html" où la table est ajoutée par:
 
-    '''
+    ```html
     <igo-table
       [headers]="headers"
       [records]="featureService.features$ | async"
       (focus)="handleRecordFocus($event)"
       (select)="handleRecordSelect($event)">
     </igo-table>
-    '''
+    ```
 
     Ajouter aussi ceci dans "demo-app/app/app.component.ts"
 
-    '''
+    ```javascript
     handleRecordFocus(record: {[key: string]: any}) {
       console.log(`Record ${record['id']} focused!`);
       if (record['type'] === FeatureType.Feature) {
@@ -423,20 +423,20 @@ Installation
         this.overlayService.setFeatures([record as Feature], 'zoom');
       }
     }
-    '''
+    ```
 
 - Styliser la table
 
   - La table peu être stylisée avec "stylus" (compilé en CSS). Pour ce faire, ajouter
     le contenu suivant au fichier "lib/shared/table/table.component.styl"
 
-    '''
+    ```css
     @require '../../../style/var.styl';
 
     td, th {
       padding: $igo-padding;
     }
-    '''
+    ```
 
     Dans ce bout de stylus, nous ajoutons du padding aux éléments "td" et "th". La valeur
     de ce padding est stockée dans une variable pour être réutilisables. Notez que le style
