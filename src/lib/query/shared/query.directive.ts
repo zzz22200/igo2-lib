@@ -1,9 +1,7 @@
 import { Directive, Self, Input, Output, EventEmitter,
          OnDestroy, AfterViewInit } from '@angular/core';
 
-import { Subscription } from 'rxjs/Subscription';
-import { Observable } from 'rxjs/Observable';
-import { forkJoin } from 'rxjs/observable/forkJoin';
+import { Subscription ,  Observable ,  forkJoin } from 'rxjs';
 
 import { IgoMap } from '../../map/shared';
 import { MapBrowserComponent } from '../../map/map-browser';

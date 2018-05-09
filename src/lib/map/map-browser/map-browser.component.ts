@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 import { SubjectStatus } from '../../utils';
 import { ActivityService } from '../../core';

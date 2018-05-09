@@ -1,5 +1,5 @@
-import { Subscription } from 'rxjs/Subscription';
-import { distinctUntilChanged } from 'rxjs/operators/distinctUntilChanged';
+import { Subscription } from 'rxjs';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 import { Watcher, SubjectStatus } from '../../utils';
 import { Layer } from '../../layer/shared/layers';

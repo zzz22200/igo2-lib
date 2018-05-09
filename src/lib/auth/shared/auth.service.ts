@@ -2,9 +2,8 @@ import { Injectable, Optional } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from 'rxjs/Observable';
-import { tap } from 'rxjs/operators/tap';
+import { BehaviorSubject ,  Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 import { ConfigService } from '../../core';
 import { Base64 } from '../../utils';

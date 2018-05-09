@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import { empty } from 'rxjs/observable/empty';
+import { Observable ,  EMPTY as empty } from 'rxjs';
 
 import { ConfigService } from '../../../core';
 import { Poi } from './poi.interface';

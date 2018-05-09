@@ -1,8 +1,7 @@
 import { Directive, Self, OnInit, OnDestroy, Optional } from '@angular/core';
 
-import { Subscription } from 'rxjs/Subscription';
-import { skip } from 'rxjs/operators/skip';
-import { filter } from 'rxjs/operators/filter';
+import { Subscription } from 'rxjs';
+import { skip ,  filter } from 'rxjs/operators';
 
 import { RouteService } from '../../core';
 import { IgoMap, MapBrowserComponent } from '../../map';

@@ -1,5 +1,5 @@
 import { Component, Input, ChangeDetectorRef } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 import { OgcFilterableDataSource } from '../../datasource';
 import { OgcFilterWriter, OgcInterfaceFilterOptions } from '../../filter/shared';

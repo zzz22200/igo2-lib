@@ -3,10 +3,8 @@ import { Component, OnInit, Input, Output,
          OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { FloatLabelType } from '@angular/material'
 
-import { Subject } from 'rxjs/Subject';
-import { Subscription } from 'rxjs/Subscription';
-import { debounceTime } from 'rxjs/operators/debounceTime';
-import { distinctUntilChanged } from 'rxjs/operators/distinctUntilChanged';
+import { Subject ,  Subscription } from 'rxjs';
+import { debounceTime ,  distinctUntilChanged } from 'rxjs/operators';
 
 import { FeatureService, SourceFeatureType, FeatureType } from '../../feature';
 import { SearchService } from '../shared';

@@ -1,7 +1,8 @@
+
+import {throwError as observableThrowError,  Observable } from 'rxjs';
 import { Injectable, Injector } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import { catchError } from 'rxjs/operators/catchError';
+import { catchError } from 'rxjs/operators';
 
 import { ObjectUtils } from '../../utils';
 
@@ -40,7 +41,7 @@ export class ConfigService {
         catchError((error: any): any => {
           console.log(`Configuration file ${options.path} could not be read`);
           resolve(true);
-          return Observable.throw(error.error || 'Server error');
+          return observableThrowError(error.error || 'Server error');
         })
       ).subscribe((configResponse) => {
         Object.assign(this.config, configResponse);

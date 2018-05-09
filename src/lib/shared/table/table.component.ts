@@ -2,9 +2,8 @@ import { Component, ElementRef, ViewChild, Input,
   OnChanges, OnInit } from '@angular/core';
 import { MatSort } from '@angular/material';
 
-import { debounceTime } from 'rxjs/operators/debounceTime';
-import { distinctUntilChanged } from 'rxjs/operators/distinctUntilChanged';
-import { fromEvent } from 'rxjs/observable/fromEvent';
+import { debounceTime ,  distinctUntilChanged } from 'rxjs/operators';
+import { fromEvent } from 'rxjs';
 
 import { ObjectUtils } from '../../utils';
 
