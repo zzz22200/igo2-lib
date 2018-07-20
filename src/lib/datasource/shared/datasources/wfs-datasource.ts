@@ -11,6 +11,7 @@ import { DataSource } from './datasource';
 import { OgcFilterableDataSource } from './datasource.interface';
 import { WFSDataSourceOptions } from './wfs-datasource.interface';
 import { WFSDataSourceService } from './wfs-datasource.service';
+import {map} from 'rxjs/operators';
 
 
 export class WFSDataSource extends DataSource implements OgcFilterableDataSource {
@@ -32,13 +33,14 @@ export class WFSDataSource extends DataSource implements OgcFilterableDataSource
     this.ogcFilterWriter = new OgcFilterWriter;
 
     this.dataSourceService.checkWfsOptions(options);
-    if (options['sourceFields'] === undefined) {
+    if (options['sourceFields'] === undefined ||
+    Object.keys(options['sourceFields']).length === 0) {
       options['sourceFields'] = []
-      this.dataSourceService.wfsGetCapabilities(options)
-        .map(wfsCapabilities => options['wfsCapabilities'] = {
+      this.dataSourceService.wfsGetCapabilities(options).pipe(
+        map(wfsCapabilities => options['wfsCapabilities'] = {
           'xml': wfsCapabilities.body,
           'GetPropertyValue': /GetPropertyValue/gi.test(wfsCapabilities.body) ? true : false
-        })
+        }))
         .subscribe(val => options['sourceFields'] =
           this.dataSourceService.defineFieldAndValuefromWFS(options));
     } else {

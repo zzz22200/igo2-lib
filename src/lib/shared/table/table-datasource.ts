@@ -4,6 +4,7 @@ import { MatSort } from '@angular/material';
 import { Observable ,  BehaviorSubject ,  merge } from 'rxjs';
 
 import { TableDatabase, TableModel } from './index';
+import {map} from 'rxjs/operators';
 
 export class TableDataSource extends DataSource<any> {
 
@@ -26,12 +27,12 @@ export class TableDataSource extends DataSource<any> {
       this._sort.sortChange
     ];
 
-    return merge(...displayDataChanges)
-    .map(() => {
+    return merge(...displayDataChanges).pipe(
+    map(() => {
       return this.getFilteredData(this._database.data);
-    }).map((data) => {
+    })).pipe(map((data) => {
       return this.getSortedData(data);
-    });
+    }));
   }
 
   disconnect() {}

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import * as ol from 'openlayers';
 
@@ -35,7 +36,7 @@ export class QueryService {
 
     this.featureService.clear();
 
-    return request.map(res => this.extractData(res, dataSource, options, url, zIndex));
+    return request.pipe(map(res => this.extractData(res, dataSource, options, url, zIndex)));
   }
 
   private extractData(res, dataSource: DataSource, options: QueryOptions,

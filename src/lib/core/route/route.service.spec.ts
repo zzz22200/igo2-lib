@@ -1,8 +1,8 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
 
 import { RouteService } from '.';
+import {of} from 'rxjs';
 
 describe('RouteService', () => {
   beforeEach(() => {
@@ -12,7 +12,7 @@ describe('RouteService', () => {
         {
           provide: ActivatedRoute,
           useValue: {
-            params: Observable.of({zoom: 8})
+            params: of({zoom: 8})
           }
         },
         RouteService

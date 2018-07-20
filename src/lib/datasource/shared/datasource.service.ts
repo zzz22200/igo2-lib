@@ -10,6 +10,7 @@ import { DataSource,
          WFSDataSource, WFSDataSourceContext, WFSDataSourceService,
          WMTSDataSource, WMTSDataSourceContext,
          WMSDataSource, WMSDataSourceContext } from './datasources';
+import {map} from 'rxjs/operators';
 
 export type AnyDataSourceContext =
   OSMDataSourceContext | FeatureDataSourceContext | WFSDataSourceContext |
@@ -79,9 +80,9 @@ export class DataSourceService {
 
     if (context.optionsFromCapabilities) {
       return this.capabilitiesService
-        .getWMSOptions(context)
-        .map((options: WMSDataSourceContext) =>
-        new WMSDataSource(options, this.wfsDataSourceService));
+        .getWMSOptions(context).pipe(
+        map((options: WMSDataSourceContext) =>
+        new WMSDataSource(options, this.wfsDataSourceService)));
     }
 
     return new Observable(d => d.next(new WMSDataSource(context, this.wfsDataSourceService)));
@@ -92,8 +93,8 @@ export class DataSourceService {
 
     if (context.optionsFromCapabilities) {
       return this.capabilitiesService
-        .getWMTSOptions(context)
-        .map((options: WMTSDataSourceContext) => new WMTSDataSource(options));
+        .getWMTSOptions(context).pipe(
+        map((options: WMTSDataSourceContext) => new WMTSDataSource(options)));
     }
 
     return new Observable(d => d.next(new WMTSDataSource(context)));
