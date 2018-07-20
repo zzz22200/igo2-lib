@@ -1,21 +1,21 @@
 {
-  "name": "@igo2/igo2",
-  "version": "0.19.10.x",
+  "name": "@ximple/igo2",
+  "version": "0.19.10.1",
   "description": "IGO Library",
   "main": "bundle/igo.js",
   "typings": "dist/lib/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/infra-geo-ouverte/igo2-lib.git"
+    "url": "git+https://github.com/XimpleTech/igo2-lib.git"
   },
   "keywords": [
     "igo"
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/infra-geo-ouverte/igo2-lib/issues"
+    "url": "https://github.com/XimpleTech/igo2-lib.git/issues"
   },
-  "homepage": "https://github.com/infra-geo-ouverte/igo2-lib#readme",
+  "homepage": "https://github.com/XimpleTech/igo2-lib.git#readme",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --project demo --proxy-config proxy.conf.json",
