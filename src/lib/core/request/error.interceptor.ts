@@ -3,7 +3,7 @@ import {
   HttpInterceptor,
   HttpHandler,
   HttpRequest,
-  HttpEvent,
+  // HttpEvent,
   HttpErrorResponse
 } from '@angular/common/http';
 
@@ -26,7 +26,7 @@ export class ErrorInterceptor implements HttpInterceptor {
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
-  ): Observable<HttpEvent<any>> {
+  ): Observable<any> {
     return next
       .handle(req)
       .pipe(
@@ -57,7 +57,7 @@ export class ErrorInterceptor implements HttpInterceptor {
       });
     }
 
-    return new ErrorObservable(this.httpError);
+    return new ErrorObservable(this.httpError.error);
   }
 
   private handleCaughtError() {
