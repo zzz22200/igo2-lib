@@ -31,6 +31,7 @@ export class IChercheSearchSource extends SearchSource {
   private locateUrl: string = 'https://geoegl.msp.gouv.qc.ca/icherche/xy';
   private options: SearchSourceOptions;
 
+
   constructor(private http: HttpClient, private config: ConfigService) {
     super();
 
@@ -45,7 +46,6 @@ export class IChercheSearchSource extends SearchSource {
 
   search(term?: string): Observable<Feature[]> {
     const searchParams = this.getSearchParams(term);
-
     return this.http
       .get(this.searchUrl, { params: searchParams })
       .map(res => this.extractSearchData(res));

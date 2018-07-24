@@ -7,6 +7,7 @@ import { IChercheSearchSource } from './icherche-search-source';
 import { DataSourceSearchSource } from './datasource-search-source';
 
 
+
 export function nominatimSearchSourcesFactory(http: HttpClient, config: ConfigService) {
   return new NominatimSearchSource(http, config);
 }
