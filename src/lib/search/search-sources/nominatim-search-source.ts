@@ -153,9 +153,9 @@ export class NominatimSearchSource extends SearchSource {
       properties: {
         name: result.FULL_ADDR,
         place_id: 'whatever',
-        osm_type: 'whatever',
-        class: 'whatever',
-        type: 'whatever'
+        osm_type: 'relation',
+        class: 'boundary',
+        type: 'administrative'
       },
       geometry: {
         type: 'Point',

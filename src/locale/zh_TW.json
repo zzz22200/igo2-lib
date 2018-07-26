@@ -1,0 +1,259 @@
+{
+  "Close Menu": "關閉選單",
+  "Go Back": "回到之前",
+  "Main Menu": "主要選單",
+  "Open Menu": "開啟選單",
+  "Search for an address or a place": "搜尋地址或地標",
+  "TPC Hosting Capacity": "台電併網容量開放平台",
+  "igo": {
+    "auth": {
+      "accessAnonymous": "如匿名存取",
+      "connection": "Connection",
+      "login": "登入",
+      "password": "密碼",
+      "signOut": "登出",
+      "user": "使用者",
+      "welcome": "歡迎 {{name}}!"
+    },
+    "bookmarkButton": {
+      "create": "建立新的背景",
+      "dialog": {
+        "createMsg": "The context '{{value}}' was created",
+        "createTitle": "背景已被建立",
+        "placeholder": "標題",
+        "title": "新背景"
+      }
+    },
+    "catalog": "目錄",
+    "catalogTool": {
+      "baseLayers": "基礎圖層"
+    },
+    "clickOnMap": {
+      "clickedFeature": "點選設備"
+    },
+    "confirmDialog": {
+      "cancelBtn": "取消",
+      "confirmBtn": "確認",
+      "title": "確認"
+    },
+    "context": {
+      "clone": "Clone this context",
+      "delete": "Delete this context",
+      "dialog": {
+        "cloneMsg": "The context '{{value}}' was cloned",
+        "cloneTitle": "Context cloned",
+        "confirmDelete": "Are you sure you want to delete this context?",
+        "deleteMsg": "The context '{{value}}' was deleted",
+        "deleteTitle": "Context deleted",
+        "favoriteMsg": "The context '{{value}}' was set as favorite",
+        "favoriteTitle": "Favorite saved",
+        "saveMsg": "The context '{{value}}' was saved",
+        "saveTitle": "Context saved"
+      },
+      "edit": "編輯這個背景",
+      "errors": {
+        "uncaught": {
+          "message": "Sorry, service is currently not available. Please try again later",
+          "title": "錯誤伺服器"
+        }
+      },
+      "favorite": "喜好項目",
+      "form": {
+        "edit": "編輯",
+        "title": "標題",
+        "titleRequired": "Title required",
+        "uri": "URI",
+        "uriRequired": "URI required"
+      },
+      "invalid": {
+        "text": "Context '{{value}}' is invalid",
+        "title": "Invalid context"
+      },
+      "managePermissions": "Manage permissions context",
+      "manageTools": "Manage tools context",
+      "ourContexts": "Our contexts",
+      "publicContexts": "Public contexts",
+      "save": "Save this context",
+      "sharedContexts": "Shared contexts"
+    },
+    "contexts": "背景",
+    "dropGeoFile": {
+      "invalid": {
+        "text": "Invalid file ({{i}}/{{count}})",
+        "title": "The file '{{value}}' is invalid"
+      },
+      "success": {
+        "text": "Imported file ({{i}}/{{count}})",
+        "title": "The layer '{{value}}' was added to the map"
+      },
+      "unreadable": {
+        "text": "Unreadable file",
+        "title": "The file '{{value}}' is unreadable"
+      }
+    },
+    "importExport": "匯入 & 匯出",
+    "importExportForm": {
+      "exportButton": "匯出",
+      "exportFormatPlaceholder": "格式",
+      "exportLayerPlaceholder": "圖層",
+      "exportTabTitle": "匯出",
+      "importButton": "匯入",
+      "importProjPlaceholder": "Source projection (EPSG:4326)",
+      "importTabTitle": "匯入"
+    },
+    "operators": {
+      "And": "And",
+      "Or": "Or",
+      "PropertyIsEqualTo": "=",
+      "PropertyIsNotEqualTo": "!=",
+      "PropertyIsLike": "≈",
+      "PropertyIsGreaterThan": ">",
+      "PropertyIsGreaterThanOrEqualTo": ">=",
+      "PropertyIsLessThan": "<",
+      "PropertyIsLessThanOrEqualTo": "<=",
+      "PropertyIsBetween": "between",
+      "During": "during",
+      "PropertyIsNull": "is null",
+      "Intersects": "intersects",
+      "Within": "within",
+      "Contains": "contains"
+    },
+    "sourceFields": {
+      "selectField": "選擇一個欄位"
+    },
+    "ogcFilter": "過濾藉由",
+    "filter": {
+      "addFilter": "Add an empty filter to the current list",
+      "removeFilter": "Remove the current filter from the filters's list",
+      "toggleFilterState": "Enable/disable the current filter",
+      "refreshFilters": "Update this datasource with the active filter(s). To enable this button, the layer must be visible (or in the defined scale ranges) or you must modify the current filter.",
+      "layerFiltered": "This layer is currently filtered",
+      "layerFilterable": "This layer is filterable"
+    },
+    "spatialSelector": {
+      "fixedExtent": "Fixed extent",
+      "btnSetExtent": "Define the extent of the spatial filter to the current view",
+      "snrc": "SNRC (ex:21L14)",
+      "selectFeature": "",
+      "drawFeature": ""
+    },
+    "layer": {
+      "hideLayer": "隱藏圖層",
+      "lowerLayer": "Bring layer backward",
+      "loadingLegendText": "載入圖例",
+      "noLegendText": "此圖層沒有可取得的圖例",
+      "opacity": "透明度",
+      "raiseLayer": "Bring layer forward",
+      "removeLayer": "由地圖上移除這圖層",
+      "showFeaturesList": "顯示設備列表",
+      "showLayer": "顯示圖層",
+      "showMetadata": "顯示元資料"
+    },
+    "download":{
+      "action": "下載資料",
+      "title": "下載檔案",
+      "start": "已開始. Check the download progression in your browser",
+      "end": "完成"
+    },
+    "map": "地圖",
+    "mapButtons": {
+      "baselayerSwitcher": "變更基礎圖層",
+      "geolocate": "地理定位",
+      "zoomIn": "地圖放大",
+      "zoomOut": "地圖縮小"
+    },
+    "permission": {
+      "addBtn": "增加",
+      "delete": "移除許可權",
+      "dialog": {
+        "addMsg": "The permission '{{value}}' was added",
+        "addTitle": "Permission added",
+        "deleteMsg": "The permission '{{value}}' was removed",
+        "deleteTitle": "Permission removed",
+        "scopeChangedMsg": "The scope was changed to {{value}}",
+        "scopeChangedTitle": "Scope changed"
+      },
+      "profil": "Profil",
+      "profilRequired": "Profil required",
+      "read": "唯讀",
+      "scope": {
+        "private": "私有",
+        "protected": "受保護的",
+        "public": "公開"
+      },
+      "write": "讀取與寫入"
+    },
+    "poiButton": {
+      "create": "建立一個新的感興趣地區",
+      "dialog": {
+        "confirmDelete": "Are you sure you want to delete this zone of interest?",
+        "createMsg": "The zone of interest '{{value}}' was created",
+        "createTitle": "Zone of interest created",
+        "deleteMsg": "The zone of interest '{{value}}' was deleted",
+        "deleteTitle": "Zone of interest deleted",
+        "placeholder": "Title",
+        "title": "New zone of interest"
+      },
+      "placeholder": "Zones of interest"
+    },
+    "print": "列印",
+    "printForm": {
+      "format": "格式",
+      "landscape": "Landscape",
+      "portrait": "Portrait",
+      "printBtn": "列印",
+      "resolution": "解析度",
+      "title": "標題"
+    },
+    "search": {
+      "dataSources": {
+        "name": "圖層",
+        "properties": {
+          "abstract": "摘要",
+          "group": "群組",
+          "title": "標題",
+          "type": "類型",
+          "url": "URL"
+        }
+      }
+    },
+    "searchResults": "搜尋結果",
+    "shareMap": {
+      "button": "分享地圖",
+      "copy": "複製到剪貼簿",
+      "dialog": {
+        "copyMsg": "連結複製到剪貼簿",
+        "copyTitle": "連結"
+      },
+      "placeholderLink": "連結",
+      "share": "分享"
+    },
+    "table": {
+      "filter": "Filter"
+    },
+    "targetHtmlUrl": "開啟外部連結",
+    "timeAnalysis": "Time Analysis",
+    "timeFilter": {
+      "date": "日期",
+      "endDate": "結束日期",
+      "startDate": "開始日期"
+    },
+    "tool": {
+      "dialog": {
+        "addMsg": "The tool '{{value}}' was added",
+        "addTitle": "Tool added",
+        "deleteMsg": "The tool '{{value}}' was removed",
+        "deleteTitle": "工具已移除"
+      }
+    },
+    "userButton": {
+      "dialog": {
+        "email": "Email",
+        "expiration": "Expiration",
+        "user": "使用者"
+      },
+      "infoTitle": "使用者資訊",
+      "logout": "登出"
+    }
+  }
+}
