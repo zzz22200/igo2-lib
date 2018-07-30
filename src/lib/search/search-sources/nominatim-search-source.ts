@@ -102,7 +102,7 @@ export class NominatimSearchSource extends SearchSource {
   }
 
   private getTogsResult(term: string): Observable<any> {
-    let togsUrl: string = this.serviceUrl + term + this.serviceUrl2;
+    const togsUrl: string = this.serviceUrl + term + this.serviceUrl2;
 
     return this.http.get(togsUrl, { responseType: 'text' })
       .map(res => res.substring(res.indexOf('{'), res.lastIndexOf('}') + 1))

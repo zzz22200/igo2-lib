@@ -7,6 +7,7 @@ import { LayerService } from '../../../layer';
 import { MapService } from '../../../map';
 
 import { Register } from '../../shared';
+import {MapViewOptions} from '../../../map/shared/map.interface';
 
 
 @Register({
@@ -34,6 +35,14 @@ export class SearchResultsToolComponent {
 
   handleFeatureSelect(feature: Feature) {
     if (feature.type === FeatureType.Feature) {
+      const map = this.mapService.getMap();
+      const viewOption: MapViewOptions = {
+        projection: 'EPSG:3857',
+        center: feature.geometry.coordinates,
+        geolocate: true
+      };
+      map.updateView(viewOption)
+      map.zoomTo(17)
       this.overlayService.setFeatures([feature], 'zoom');
     } else if (feature.type === FeatureType.DataSource) {
       const map = this.mapService.getMap();

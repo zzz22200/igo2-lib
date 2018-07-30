@@ -9,6 +9,7 @@ import { ContextService,
 import { AnyDataSourceContext, DataSourceService } from '../../lib/datasource';
 
 
+
 @Component({
   selector: 'igo-demo',
   templateUrl: './app.component.html',
@@ -72,7 +73,6 @@ export class AppComponent implements OnInit {
       this.overlayService.setFeatures([feature], 'zoom');
     } else if (feature.type === FeatureType.DataSource) {
       const map = this.mapService.getMap();
-
       if (map !== undefined) {
         this.dataSourceService
           .createAsyncDataSource(feature.layer as AnyDataSourceContext)
